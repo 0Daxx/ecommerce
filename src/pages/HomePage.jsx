@@ -8,7 +8,7 @@ export function HomePage() {
         <title>Ecommerce Project</title>
         <div className="header">
           <div className="left-section">
-            <a href="index.html" className="header-link">
+            <a href="/" className="header-link">
               <img className="logo" src="images/logo-white.png" />
               <img className="mobile-logo" src="images/mobile-logo-white.png" />
             </a>
