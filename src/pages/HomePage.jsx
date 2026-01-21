@@ -1,9 +1,7 @@
 import axios from 'axios';
-
+import { useEffect , useState } from 'react';
 import { Header } from "../components/Header";
 import "./HomePage.css";
-
-import { products } from "../../starting-code/data/products";
 export function HomePage() {
 
 // fetch is asynchronous : code that doenst finish immediately RETURNS a Promise  , similarly .then a method of fetch and also 
@@ -13,11 +11,16 @@ export function HomePage() {
   // }).then((data) => {
   //     console.log(data);
   //   })
-  axios.get("http://localhost:3000/api/products")
-  .then((response) =>{
-    console.log(response.data);
-  } )
-
+  const [products,setProducts] = useState([]);
+  useEffect(() =>{
+    // Lets us Control when some code runs 
+    axios.get("http://localhost:3000/api/products")
+      .then((response) =>{
+        setProducts(response.data);
+      } )
+  },[])
+  // DEPENDENCY array : to control when useEffect runs , empty array means will run once only 
+    // Strictmode runs 2 times and hence in console their will be 2 response data 
     // !!! Tool Axiom : cleaner way to make requests to the backend 
 
   return (
