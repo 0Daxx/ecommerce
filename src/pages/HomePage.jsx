@@ -15,12 +15,12 @@ export function HomePage() {
   const [cart,setCart] = useState([]);
   useEffect(() =>{
     // Lets us Control when some code runs 
-    axios.get("http://localhost:3000/api/products")
+    axios.get("api/products")
       .then((response) =>{
         setProducts(response.data);
       } )
 
-    axios.get('http://localhost:3000/api/cart-items').then((response) =>{
+    axios.get('api/cart-items').then((response) =>{
       setCart(response.data)
     })
   },[])
