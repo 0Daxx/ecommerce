@@ -1,8 +1,25 @@
+import axios from 'axios';
+
 import { Header } from "../components/Header";
 import "./HomePage.css";
 
 import { products } from "../../starting-code/data/products";
 export function HomePage() {
+
+// fetch is asynchronous : code that doenst finish immediately RETURNS a Promise  , similarly .then a method of fetch and also 
+  // fetch("http://localhost:3000/api/products")
+  // .then((response) =>{
+  //   return response.json()
+  // }).then((data) => {
+  //     console.log(data);
+  //   })
+  axios.get("http://localhost:3000/api/products")
+  .then((response) =>{
+    console.log(response.data);
+  } )
+
+    // !!! Tool Axiom : cleaner way to make requests to the backend 
+
   return (
     <>
       <title>Ecommerce Project</title>
@@ -61,7 +78,6 @@ export function HomePage() {
                     Add to Cart
                   </button>
                 </div>
-                
               </>
             );
           })}
