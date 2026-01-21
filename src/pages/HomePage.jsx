@@ -12,12 +12,17 @@ export function HomePage() {
   //     console.log(data);
   //   })
   const [products,setProducts] = useState([]);
+  const [cart,setCart] = useState([]);
   useEffect(() =>{
     // Lets us Control when some code runs 
     axios.get("http://localhost:3000/api/products")
       .then((response) =>{
         setProducts(response.data);
       } )
+
+    axios.get('http://localhost:3000/api/cart-items').then((response) =>{
+      setCart(response.data)
+    })
   },[])
   // DEPENDENCY array : to control when useEffect runs , empty array means will run once only 
     // Strictmode runs 2 times and hence in console their will be 2 response data 
@@ -26,7 +31,7 @@ export function HomePage() {
   return (
     <>
       <title>Ecommerce Project</title>
-      <Header />
+      <Header cart={cart} />
       <div className="home-page">
         <div className="products-grid">
           {products.map((product) => {
