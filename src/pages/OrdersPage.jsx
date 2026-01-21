@@ -1,7 +1,7 @@
 import { Header } from "../components/Header";
 import "./OrdersPage.css";
 
-export function Orders() {
+export function OrdersPage() {
   return (
     <>
     <title>Orders</title>
