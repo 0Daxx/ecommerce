@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useEffect , useState } from 'react';
 import { Header } from "../components/Header";
+import { formatMoney  } from '../utils/money';
+
 import "./HomePage.css";
-export function HomePage() {
+export function HomePage({cart}) {
 
 // fetch is asynchronous : code that doenst finish immediately RETURNS a Promise  , similarly .then a method of fetch and also 
   // fetch("http://localhost:3000/api/products")
@@ -12,7 +14,7 @@ export function HomePage() {
   //     console.log(data);
   //   })
   const [products,setProducts] = useState([]);
-  const [cart,setCart] = useState([]);
+  // const [cart,setCart] = useState([]);
   useEffect(() =>{
     // Lets us Control when some code runs 
     axios.get("api/products")
@@ -20,9 +22,6 @@ export function HomePage() {
         setProducts(response.data);
       } )
 
-    axios.get('api/cart-items').then((response) =>{
-      setCart(response.data)
-    })
   },[])
   // DEPENDENCY array : to control when useEffect runs , empty array means will run once only 
     // Strictmode runs 2 times and hence in console their will be 2 response data 
@@ -57,7 +56,7 @@ export function HomePage() {
                   </div>
 
                   <div className="product-price">
-                    ${(product.priceCents / 100).toFixed(2)}
+                    {formatMoney(product.priceCents)}
                   </div>
 
                   <div className="product-quantity-container">
