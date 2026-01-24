@@ -15,13 +15,22 @@ export function HomePage({cart}) {
   //   })
   const [products,setProducts] = useState([]);
   // const [cart,setCart] = useState([]);
-  useEffect(() =>{
-    // Lets us Control when some code runs 
-    axios.get("api/products")
-      .then((response) =>{
-        setProducts(response.data);
-      } )
 
+
+  useEffect( () =>{
+    // Lets us Control when some code runs 
+    // axios.get("api/products")
+    // .then((response) =>{
+      // setProducts(response.data);
+      // } ) 
+
+      // 1.3 : In react , preference async await > promises   BUT useEffect must only return nothing or a cleanup function 
+
+      const getHomeData = async () => {
+        const response = await axios.get("api/products")
+        setProducts(response.data);
+      }
+      getHomeData();
   },[])
   // DEPENDENCY array : to control when useEffect runs , empty array means will run once only 
     // Strictmode runs 2 times and hence in console their will be 2 response data 
