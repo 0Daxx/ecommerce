@@ -16,7 +16,7 @@ export function CheckoutPage({ cart }) {
         "/api/delivery-options?expand=estimatedDeliveryTime",
       );
       setDeliveryOptions(response.data);
-      
+
       response = await axios.get("/api/payment-summary");
       setPaymentSummary(response.data);
 
@@ -36,6 +36,9 @@ export function CheckoutPage({ cart }) {
     // });
 
   }, []);
+
+
+  
   return (
     <>
       <title>Checkout</title>

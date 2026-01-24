@@ -13,9 +13,15 @@ export function OrdersPage({ cart }) {
   // Generate data for order page
 
   useEffect(() => {
-    axios.get("/api/orders?expand=products").then((response) => {
-      setOrders(response.data);
-    });
+    
+    const fetchOrderData = async () =>{
+      const response = axios.get("/api/orders?expand=products") 
+      setOrders((await response).data)
+    }
+    fetchOrderData();
+    // axios.get("/api/orders?expand=products").then((response) => {
+    //   setOrders(response.data);
+    // });
   }, []);
   // declaration array so it runs only 1 time
 
