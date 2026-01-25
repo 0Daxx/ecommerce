@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 import { ProductsGrid } from './ProductsGrid';
 
 import "./HomePage.css";
-export function HomePage({cart}) {
+export function HomePage({cart , loadCart}) {
 
 // fetch is asynchronous : code that doenst finish immediately RETURNS a Promise  , similarly .then a method of fetch and also 
   // fetch("http://localhost:3000/api/products")
@@ -41,7 +41,7 @@ export function HomePage({cart}) {
       <title>Ecommerce Project</title>
       <Header cart={cart} />
       <div className="home-page">
-        {<ProductsGrid products={products}/>}
+        {<ProductsGrid products={products} loadCart={loadCart} />}
       </div>
     </>
   );
