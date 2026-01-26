@@ -5,6 +5,8 @@ import { userEvent } from '@testing-library/user-event'
 import axios from "axios";
 
 
+// -> Mock the implementation : make the mock do whatever we want 
+
 vi.mock('axios'); 
 describe("Product Component", () => {
   let product ; 
@@ -53,7 +55,7 @@ describe("Product Component", () => {
   ).tobeInTheDocument();
   });
 
-  it('adds a product to the cart',()=>{
+  it('adds a product to the cart', async ()=>{
     render(<Product product={product} loadCart={loadCart} />);
     const user = userEvent.setup();
     const addToCartBtn =   screen.getByTestId("add-to-cart-button");
@@ -61,14 +63,13 @@ describe("Product Component", () => {
     // user.click is async 
     await user.click(addToCartBtn);
     expect(axios.post).toHaveBeenCalledWith(
-      '/api/cart-items',
+      "/api/cart-items",
 
-      
       {
-      productId ,
-        quantity  
-      }
-    )
+        id : id ,
+        quantity,
+      },
+    );
     expect(loadCart).toHaveBeenCalled();
   })
 });
