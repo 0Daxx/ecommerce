@@ -13,7 +13,7 @@ describe("Product Component", () => {
   let loadCart 
   
   beforeEach(()=>{
-    const product = {
+    product = {
       id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
       image: "images/products/athletic-cotton-socks-6-pairs.jpg",
       name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
@@ -25,7 +25,7 @@ describe("Product Component", () => {
       keywords: ["socks", "sports", "apparel"],
     };
     
-    const loadCart = vi.fn();
+    loadCart = vi.fn();
   })
 
   
@@ -66,8 +66,8 @@ describe("Product Component", () => {
       "/api/cart-items",
 
       {
-        id : id ,
-        quantity,
+        id: product.id,
+        quantity: 1,
       },
     );
     expect(loadCart).toHaveBeenCalled();

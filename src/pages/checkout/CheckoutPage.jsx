@@ -1,10 +1,11 @@
 import axios from "axios";
 // import { formatMoney } from "../../utils/money";
 import { useState, useEffect } from "react";
-import "./checkout-header.css";
+import "./CheckoutHeader.css"; 
 import "./CheckoutPage.css";
 import { OrderSummary } from "./OrderSummary";
 import { PaymentSummary } from "./PaymentSummary";
+import { CheckoutHeader } from "./CheckoutHeader";
 
 export function CheckoutPage({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
@@ -44,6 +45,9 @@ export function CheckoutPage({ cart, loadCart }) {
     <>
       <title>Checkout</title>
 
+      {/* 
+    
+    
       <div className="checkout-header">
         <div className="header-content">
           <div className="checkout-header-left-section">
@@ -66,6 +70,8 @@ export function CheckoutPage({ cart, loadCart }) {
           </div>
         </div>
       </div>
+          */}
+      <CheckoutHeader />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>

@@ -4,10 +4,8 @@ import { MemoryRouter } from "react-router";
 // import { userEvent } from "@testing-library/user-event";
 import axios from "axios";
 
-import { isDescendantOrSelf } from "@testing-library/user-event/dist/cjs/utils/index.js";
 
 import { Homepage } from "./Homepage";
-import { data } from "react-router";
 import { ProductsGrid } from "./ProductsGrid";
 
 vi.mock("axios");
