@@ -7,7 +7,10 @@ import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 // import { OrdersPage } from "./pages/order/OrdersPage";
 import { OrdersPage } from "./pages/order/OrdersPage";
 
-import "./App.css";
+import "./App.css"; 
+import { TrackingPage } from "./pages/order/TrackingPage";
+
+import { ErrorPage } from "./pages/error/ErrorPage";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -32,6 +35,8 @@ function App() {
         element={<CheckoutPage cart={cart} loadCart={loadCart} />}
       />
       <Route path="orders" element={<OrdersPage cart={cart} />} />
+      <Route path="tracking" element={<TrackingPage cart={cart}  />} />
+      <Route path="*" element={< ErrorPage />}  />
     </Routes>
   );
 }

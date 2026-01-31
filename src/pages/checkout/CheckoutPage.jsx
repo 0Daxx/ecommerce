@@ -44,6 +44,12 @@ export function CheckoutPage({ cart, loadCart }) {
   return (
     <>
       <title>Checkout</title>
+      <link
+        rel="icon"
+        type="image/svg+xml"
+        href="images/favicon/cart-favicon.png"
+        // href="../../../public/images/favicon/checkout-favicon.png"
+      />
 
       {/* 
     
